@@ -1,34 +1,42 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { useEffect } from "react"; // Додайте імпорт useEffect з React
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { db, auth } from "./services/firebase"; // імпорт db та auth з вашого firebase.js
+import Home from "./pages/Home/HomePage"; // імпорт компонента Home
+import Teachers from "./pages/Teachers/TeachersPage"; // імпорт компонента Teachers
+import Favorites from "./pages/Favorites"; // імпорт компонента Favorites
 
 function App() {
-  const [count, setCount] = useState(0);
+  // Приклад використання db
+  useEffect(() => {
+    const usersRef = db.ref("users");
+    usersRef.once("value", (snapshot) => {
+      const users = snapshot.val();
+      console.log("Users:", users);
+    });
+  }, []);
+
+  // Приклад використання auth
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        console.log("User is signed in:", user);
+      } else {
+        console.log("No user is signed in.");
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/teachers" component={Teachers} />
+        <Route path="/favorites" component={Favorites} />
+      </Switch>
+    </Router>
   );
 }
 

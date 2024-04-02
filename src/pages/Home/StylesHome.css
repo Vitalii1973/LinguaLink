@@ -1,0 +1,124 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #212529;
+}
+
+.logo svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.nav-items {
+    display: flex;
+}
+
+.nav-items a,
+.login-btn,
+.registration-btn {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #212529;
+}
+
+.login-btn {
+    margin-left: 10px;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.top-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.top-block h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.top-block p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.get-started-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.side-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.sticker-image {
+    width: 150px;
+    height: 150px;
+}
+
+.logo-overlay {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+.bottom-block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.bottom-block-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom-block-items p:first-child {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.bottom-block-items p:last-child {
+    font-size: 18px;
+}
